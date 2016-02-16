@@ -1,5 +1,6 @@
 package ru.bstu.iitus.vt41.opn;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
@@ -7,7 +8,9 @@ import java.util.Scanner;
  * Created by KASPER on 07.02.2016.
  */
 public class Building extends Construction {
-    /** Field count of floors */
+    /**
+     * Field count of floors
+     */
     private int numberOfFloors;
 
     public void setNumberOfFloors(int numberOfFloors) {
@@ -16,6 +19,7 @@ public class Building extends Construction {
 
     /**
      * Method returns number of floors
+     *
      * @return - field number of floors
      */
     public int getNumberOfFloors() {
@@ -24,27 +28,28 @@ public class Building extends Construction {
 
     /**
      * Method reads the parameters from the console
+     *
      * @param scanner - for read
      */
     public void init(Scanner scanner) {
         System.out.println("Material, exploitationPeriod, numberOfFloors");
-        if (scanner.hasNext()) {
+        try {
             setMaterial(scanner.next());
+        } catch(InputMismatchException e){
+            e.printStackTrace();
+            return;
         }
-        else return;
-        //InputMismatchException
         if (scanner.hasNextInt()) {
             setExploitationPeriod(scanner.nextInt());
-        }
-        else return;
+        } else return;
         if (scanner.hasNextInt()) {
             setNumberOfFloors(scanner.nextInt());
-        }
-        else return;
+        } else return;
     }
 
     /**
      * Method returns an instance of the class as a string
+     *
      * @return - string
      */
     @Override
