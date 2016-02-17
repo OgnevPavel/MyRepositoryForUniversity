@@ -2,11 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9e7c1d15-f634-4f59-b4f9-8e20bcc39b35" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Lab №1/ru/bstu/iitus/vt41/opn/ApartmentHouse.class" afterPath="$PROJECT_DIR$/out/production/Lab №1/ru/bstu/iitus/vt41/opn/ApartmentHouse.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Lab №1/ru/bstu/iitus/vt41/opn/Cottage.class" afterPath="$PROJECT_DIR$/out/production/Lab №1/ru/bstu/iitus/vt41/opn/Cottage.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Lab №1/ru/bstu/iitus/vt41/opn/Supermarket.class" afterPath="$PROJECT_DIR$/out/production/Lab №1/ru/bstu/iitus/vt41/opn/Supermarket.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Lab №1/ru/bstu/iitus/vt41/opn/Tunnel.class" afterPath="$PROJECT_DIR$/out/production/Lab №1/ru/bstu/iitus/vt41/opn/Tunnel.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Lab №1/ru/bstu/iitus/vt41/opn/ViaductConstruction.class" afterPath="$PROJECT_DIR$/out/production/Lab №1/ru/bstu/iitus/vt41/opn/ViaductConstruction.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Lab №1.iws" />
@@ -475,7 +470,13 @@
       <option name="project" value="LOCAL" />
       <updated>1455725650562</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Commit #3">
+      <created>1455725830176</created>
+      <option name="number" value="00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1455725830176</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="ToolWindowManager">
