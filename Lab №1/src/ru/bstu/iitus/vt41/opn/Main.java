@@ -1,6 +1,7 @@
 package ru.bstu.iitus.vt41.opn;
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
@@ -14,44 +15,46 @@ public class Main {
         ArrayList<Construction> arrayOfConstruction = new ArrayList<>();
         System.out.println("Enter the number of buildings");
         Scanner scanner = new Scanner(System.in);
-        if (scanner.hasNextInt()){
+        try {
             countOfConstruction = scanner.nextInt();
-        }
-        else {
-            scanner.close();
-            System.out.println("You have not entered the number of facilities");
+        } catch(InputMismatchException e){
+            e.printStackTrace();
             return;
         }
         for (int i = 0; i < countOfConstruction; i++) {
             System.out.println("Enter the type of construction");
-            if (scanner.hasNext()) {
+            try {
                 Construction build = null;
-                switch (scanner.next()) {
-                    case ("Building"): {
+                Construction.Constr constr = Construction.Constr.constrEqualsString(scanner.next());
+                if (constr == null){
+                    throw new IllegalNameOfConstructionException();
+                }
+                switch (constr) {
+                    case BUILDING: {
                         build = new Building();
                         break;
                     }
-                    case ("Cottage"): {
+                    case COTTAGE: {
                         build = new Cottage();
                         break;
                     }
-                    case ("Supermarket"): {
+                    case SUPERMARKET: {
                         build = new Supermarket();
                         break;
                     }
-                    case ("ApartmentHouse"): {
+                    case APARTMENTHOUSE: {
                         build = new ApartmentHouse();
                         break;
                     }
-                    case ("ViaductConstruction"): {
+                    case VIADUCTCONSTRUCTION: {
                         build = new ViaductConstruction();
                         break;
                     }
-                    case ("Bridge"): {
+                    case BRIDGE: {
                         build = new Bridge();
                         break;
                     }
-                    case ("Tunnel"): {
+                    case TUNNEL: {
                         build = new Tunnel();
                         break;
                     }
@@ -64,20 +67,31 @@ public class Main {
                     build.init(scanner);
                     arrayOfConstruction.add(build);
                 }
+            } catch(InputMismatchException e) {
+                e.printStackTrace();
+                return;
+            } catch(IllegalNameOfConstructionException e){
+                System.out.println(e.getMessageError());
+                return;
             }
         }
         scanner.close();
         Construction lowestPeriod = null;
-        for (Construction construction: arrayOfConstruction){
-            if (lowestPeriod == null){
-                lowestPeriod = construction;
-            }
-            else {
-                if (lowestPeriod.getExploitationPeriod() > construction.getExploitationPeriod()){
+        try {
+            for (Construction construction: arrayOfConstruction){
+                if (lowestPeriod == null){
                     lowestPeriod = construction;
                 }
+                else {
+                    if (lowestPeriod.getExploitationPeriod() > construction.getExploitationPeriod()){
+                        lowestPeriod = construction;
+                    }
+                }
             }
+            System.out.println("Information about the building with the lowest period of operation:\n" + lowestPeriod.toString());
+        } catch (Exception e){
+            e.printStackTrace();
+            return;
         }
-        System.out.println("Information about the building with the lowest period of operation:\n" + lowestPeriod.toString());
     }
 }

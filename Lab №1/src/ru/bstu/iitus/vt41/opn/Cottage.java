@@ -1,5 +1,6 @@
 package ru.bstu.iitus.vt41.opn;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
@@ -31,12 +32,17 @@ public class Cottage extends Building {
         Double aLandArea = 0.0;
         System.out.println("Material, ExploitationPeriod, NumberOfFloors, LandArea");
         super.init(scanner);
-        if (scanner.hasNext()){
+        try {
             String str = scanner.next();
             aLandArea = Double.parseDouble(str);
+            setLandArea(aLandArea);
+        } catch(InputMismatchException e){
+            e.printStackTrace();
+            return;
+        } catch(NumberFormatException e){
+            e.printStackTrace();
+            return;
         }
-        else return;
-        setLandArea(aLandArea);
     }
 
     /**

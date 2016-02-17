@@ -41,4 +41,31 @@ public abstract class Construction {
     public void setExploitationPeriod(int exploitationPeriod) {
         this.exploitationPeriod = exploitationPeriod;
     }
+
+    /**
+     * Enumerate of construction
+     */
+    public enum Constr{
+        APARTMENTHOUSE,
+        BRIDGE,
+        BUILDING,
+        COTTAGE,
+        SUPERMARKET,
+        TUNNEL,
+        VIADUCTCONSTRUCTION;
+
+        /**
+         * Method comparison enumerated types and strings
+         * @param string - comparison string
+         * @return - value of an enumerated type, if equals, and null otherwise
+         */
+        public static Constr constrEqualsString(String string){
+            Constr constr[] = Constr.values();
+            for (Constr s : constr) {
+                if (string.equalsIgnoreCase(s.name()))
+                    return s;
+            }
+            return null;
+        }
+    }
 }

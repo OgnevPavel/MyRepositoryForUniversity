@@ -1,5 +1,6 @@
 package ru.bstu.iitus.vt41.opn;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
@@ -30,10 +31,12 @@ public class ApartmentHouse extends Building{
     public void init(Scanner scanner) {
         System.out.println("Material, ExploitationPeriod, NumberOfFloors, NumberOfApartment");
         super.init(scanner);
-        if (scanner.hasNext()){
+        try{
             setNumberOfApartment(scanner.nextInt());
+        } catch(InputMismatchException e){
+            e.printStackTrace();
+            return;
         }
-        else return;
     }
 
     /**

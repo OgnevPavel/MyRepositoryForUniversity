@@ -39,12 +39,18 @@ public class Building extends Construction {
             e.printStackTrace();
             return;
         }
-        if (scanner.hasNextInt()) {
+        try {
             setExploitationPeriod(scanner.nextInt());
-        } else return;
-        if (scanner.hasNextInt()) {
+        } catch(InputMismatchException e){
+            e.printStackTrace();
+            return;
+        }
+        try {
             setNumberOfFloors(scanner.nextInt());
-        } else return;
+        } catch(InputMismatchException e){
+            e.printStackTrace();
+            return;
+        }
     }
 
     /**

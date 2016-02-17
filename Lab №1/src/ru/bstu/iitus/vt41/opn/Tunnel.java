@@ -1,5 +1,6 @@
 package ru.bstu.iitus.vt41.opn;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
@@ -28,14 +29,14 @@ public class Tunnel extends ViaductConstruction {
      */
     @Override
     public void init(Scanner scanner) {
-        String aMaterial;
-        int aNumberOfFloors, aExploitationPeriod, aDepth;
         System.out.println("Material, ExploitationPeriod, length, Depth");
         super.init(scanner);
-        if (scanner.hasNextInt()){
+        try{
             setDepth(scanner.nextInt());
+        } catch(InputMismatchException e){
+            e.printStackTrace();
+            return;
         }
-        else return;
     }
 
     /**

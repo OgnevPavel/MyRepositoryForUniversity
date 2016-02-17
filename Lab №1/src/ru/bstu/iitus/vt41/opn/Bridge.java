@@ -1,5 +1,6 @@
 package ru.bstu.iitus.vt41.opn;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
@@ -28,14 +29,14 @@ public class Bridge extends ViaductConstruction {
      */
     @Override
     public void init(Scanner scanner) {
-        String aMaterial;
-        int aNumberOfFloors, aExploitationPeriod, aNumberOfPoles;
         System.out.println("Material, ExploitationPeriod, length, NumberOfPoles");
         super.init(scanner);
-        if (scanner.hasNextInt()){
+        try{
             setNumberOfPoles(scanner.nextInt());
+        } catch(InputMismatchException e){
+            e.printStackTrace();
+            return;
         }
-        else return;
     }
 
     /**

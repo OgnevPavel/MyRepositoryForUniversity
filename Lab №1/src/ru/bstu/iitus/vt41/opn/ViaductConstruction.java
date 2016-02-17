@@ -1,5 +1,6 @@
 package ru.bstu.iitus.vt41.opn;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
@@ -28,18 +29,24 @@ public class ViaductConstruction extends Construction {
      */
     public void init(Scanner scanner) {
         System.out.println("Material, exploitationPeriod, length");
-        if (scanner.hasNext()) {
+        try {
             setMaterial(scanner.next());
+        } catch(InputMismatchException e){
+            e.printStackTrace();
+            return;
         }
-        else return;
-        if (scanner.hasNextInt()) {
+        try {
             setExploitationPeriod(scanner.nextInt());
+        } catch(InputMismatchException e){
+            e.printStackTrace();
+            return;
         }
-        else return;
-        if (scanner.hasNextInt()) {
+        try {
             setLength(scanner.nextInt());
-        }
-        else return;
+        } catch(InputMismatchException e){
+            e.printStackTrace();
+            return;
+        };
     }
 
     /**
