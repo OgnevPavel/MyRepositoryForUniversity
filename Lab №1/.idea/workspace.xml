@@ -1,22 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9e7c1d15-f634-4f59-b4f9-8e20bcc39b35" name="Default" comment="Commit #3">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/ru/bstu/iitus/vt41/opn/IllegalNameOfConstructionException.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Lab №1/ru/bstu/iitus/vt41/opn/Bridge.class" afterPath="$PROJECT_DIR$/out/production/Lab №1/ru/bstu/iitus/vt41/opn/Bridge.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Lab №1/ru/bstu/iitus/vt41/opn/Building.class" afterPath="$PROJECT_DIR$/out/production/Lab №1/ru/bstu/iitus/vt41/opn/Building.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Lab №1/ru/bstu/iitus/vt41/opn/Construction.class" afterPath="$PROJECT_DIR$/out/production/Lab №1/ru/bstu/iitus/vt41/opn/Construction.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Lab №1/ru/bstu/iitus/vt41/opn/Main.class" afterPath="$PROJECT_DIR$/out/production/Lab №1/ru/bstu/iitus/vt41/opn/Main.class" />
+    <list default="true" id="9e7c1d15-f634-4f59-b4f9-8e20bcc39b35" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Lab №1/ru/bstu/iitus/vt41/opn/ApartmentHouse.class" afterPath="$PROJECT_DIR$/out/production/Lab №1/ru/bstu/iitus/vt41/opn/ApartmentHouse.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Lab №1/ru/bstu/iitus/vt41/opn/Cottage.class" afterPath="$PROJECT_DIR$/out/production/Lab №1/ru/bstu/iitus/vt41/opn/Cottage.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Lab №1/ru/bstu/iitus/vt41/opn/Supermarket.class" afterPath="$PROJECT_DIR$/out/production/Lab №1/ru/bstu/iitus/vt41/opn/Supermarket.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Lab №1/ru/bstu/iitus/vt41/opn/Tunnel.class" afterPath="$PROJECT_DIR$/out/production/Lab №1/ru/bstu/iitus/vt41/opn/Tunnel.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Lab №1/ru/bstu/iitus/vt41/opn/ViaductConstruction.class" afterPath="$PROJECT_DIR$/out/production/Lab №1/ru/bstu/iitus/vt41/opn/ViaductConstruction.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ru/bstu/iitus/vt41/opn/ApartmentHouse.java" afterPath="$PROJECT_DIR$/src/ru/bstu/iitus/vt41/opn/ApartmentHouse.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ru/bstu/iitus/vt41/opn/Bridge.java" afterPath="$PROJECT_DIR$/src/ru/bstu/iitus/vt41/opn/Bridge.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ru/bstu/iitus/vt41/opn/Building.java" afterPath="$PROJECT_DIR$/src/ru/bstu/iitus/vt41/opn/Building.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ru/bstu/iitus/vt41/opn/Construction.java" afterPath="$PROJECT_DIR$/src/ru/bstu/iitus/vt41/opn/Construction.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ru/bstu/iitus/vt41/opn/Cottage.java" afterPath="$PROJECT_DIR$/src/ru/bstu/iitus/vt41/opn/Cottage.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ru/bstu/iitus/vt41/opn/Main.java" afterPath="$PROJECT_DIR$/src/ru/bstu/iitus/vt41/opn/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ru/bstu/iitus/vt41/opn/Supermarket.java" afterPath="$PROJECT_DIR$/src/ru/bstu/iitus/vt41/opn/Supermarket.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ru/bstu/iitus/vt41/opn/Tunnel.java" afterPath="$PROJECT_DIR$/src/ru/bstu/iitus/vt41/opn/Tunnel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ru/bstu/iitus/vt41/opn/ViaductConstruction.java" afterPath="$PROJECT_DIR$/src/ru/bstu/iitus/vt41/opn/ViaductConstruction.java" />
     </list>
     <ignored path="Lab №1.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -53,18 +44,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.23367697">
               <caret line="8" column="3" selection-start-line="8" selection-start-column="3" selection-end-line="8" selection-end-column="3" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Building.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ru/bstu/iitus/vt41/opn/Building.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="52" column="9" selection-start-line="52" selection-start-column="9" selection-end-line="52" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -490,7 +469,13 @@
       <option name="project" value="LOCAL" />
       <updated>1455644266906</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Commit #3">
+      <created>1455725650562</created>
+      <option name="number" value="00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1455725650562</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -503,7 +488,7 @@
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32929516" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32819384" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32819384" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32929516" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -848,16 +833,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ru/bstu/iitus/vt41/opn/Bridge.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.697074">
-          <caret line="38" column="9" selection-start-line="38" selection-start-column="9" selection-end-line="38" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ru/bstu/iitus/vt41/opn/ApartmentHouse.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5025818">
@@ -916,9 +891,19 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/ru/bstu/iitus/vt41/opn/Bridge.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6975945">
+          <caret line="38" column="9" selection-start-line="38" selection-start-column="9" selection-end-line="38" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/ru/bstu/iitus/vt41/opn/Building.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state vertical-scroll-proportion="0.76632303">
           <caret line="52" column="9" selection-start-line="52" selection-start-column="9" selection-end-line="52" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
