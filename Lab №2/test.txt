@@ -1,0 +1,8 @@
+﻿<html>
+<head>
+    <body>
+        <div class="tab_text"><p>Текст</p></div>
+        <a href='www.example.com' name='somelink'>Ссылка</a>
+        <span style='color: red'>Текст красного цвета</span>
+    </body>
+</html>
