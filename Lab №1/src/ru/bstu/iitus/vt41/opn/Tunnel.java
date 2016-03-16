@@ -29,8 +29,8 @@ public class Tunnel extends ViaductConstruction {
      */
     @Override
     public void init(Scanner scanner) {
-        System.out.println("Material, ExploitationPeriod, length, Depth");
         super.init(scanner);
+        System.out.println("Depth");
         try{
             setDepth(scanner.nextInt());
         } catch(InputMismatchException e){

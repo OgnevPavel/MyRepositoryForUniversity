@@ -29,8 +29,8 @@ public class Supermarket extends Building {
      */
     @Override
     public void init(Scanner scanner) {
-        System.out.println("Material, ExploitationPeriod, NumberOfFloors, TitleOfSupermarket");
         super.init(scanner);
+        System.out.println("TitleOfSupermarket");
         try{
             setTitleOfSupermarket(scanner.next());
         } catch(InputMismatchException e){

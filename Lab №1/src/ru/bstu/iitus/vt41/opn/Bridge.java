@@ -28,8 +28,8 @@ public class Bridge extends ViaductConstruction {
      */
     @Override
     public void init(Scanner scanner) {
-        System.out.println("Material, ExploitationPeriod, length, NumberOfPoles");
         super.init(scanner);
+        System.out.println("NumberOfPoles");
         try{
             setNumberOfPoles(scanner.nextInt());
         } catch(InputMismatchException e){

@@ -28,8 +28,8 @@ public class ApartmentHouse extends Building{
      */
     @Override
     public void init(Scanner scanner) {
-        System.out.println("Material, ExploitationPeriod, NumberOfFloors, NumberOfApartment");
         super.init(scanner);
+        System.out.println("NumberOfApartment");
         try{
             setNumberOfApartment(scanner.nextInt());
         } catch(InputMismatchException e){

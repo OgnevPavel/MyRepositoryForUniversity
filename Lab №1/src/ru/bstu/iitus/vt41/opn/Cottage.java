@@ -30,8 +30,8 @@ public class Cottage extends Building {
     @Override
     public void init(Scanner scanner) {
         Double aLandArea = 0.0;
-        System.out.println("Material, ExploitationPeriod, NumberOfFloors, LandArea");
         super.init(scanner);
+        System.out.println("LandArea");
         try {
             String str = scanner.next();
             aLandArea = Double.parseDouble(str);
