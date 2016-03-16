@@ -20,7 +20,6 @@ public abstract class Construction {
 
     /**
      * Method returns lifetime of construction
-     * @return - field operation period
      */
     public int getExploitationPeriod() {
         return exploitationPeriod;
@@ -32,7 +31,6 @@ public abstract class Construction {
 
     /**
      * Method returns material of construction
-     * @return - field material
      */
     public String getMaterial() {
         return material;
@@ -40,32 +38,5 @@ public abstract class Construction {
 
     public void setExploitationPeriod(int exploitationPeriod) {
         this.exploitationPeriod = exploitationPeriod;
-    }
-
-    /**
-     * Enumerate of construction
-     */
-    public enum Constr{
-        APARTMENTHOUSE,
-        BRIDGE,
-        BUILDING,
-        COTTAGE,
-        SUPERMARKET,
-        TUNNEL,
-        VIADUCTCONSTRUCTION;
-
-        /**
-         * Method comparison enumerated types and strings
-         * @param string - comparison string
-         * @return - value of an enumerated type, if equals, and null otherwise
-         */
-        public static Constr constrEqualsString(String string){
-            Constr constr[] = Constr.values();
-            for (Constr s : constr) {
-                if (string.equalsIgnoreCase(s.name()))
-                    return s;
-            }
-            return null;
-        }
     }
 }

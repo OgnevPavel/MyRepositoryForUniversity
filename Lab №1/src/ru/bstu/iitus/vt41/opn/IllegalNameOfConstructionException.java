@@ -14,9 +14,9 @@ public class IllegalNameOfConstructionException extends Exception {
     }
     /**
      * Method returns message about error
-     * @return - message about error
      */
-    public String getMessageError() {
+    @Override
+    public String getMessage() {
         return messageError;
     }
 }

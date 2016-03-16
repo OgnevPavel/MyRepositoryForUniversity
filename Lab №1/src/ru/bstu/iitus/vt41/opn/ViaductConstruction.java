@@ -31,27 +31,15 @@ public class ViaductConstruction extends Construction {
         System.out.println("Material, exploitationPeriod, length");
         try {
             setMaterial(scanner.next());
-        } catch(InputMismatchException e){
-            e.printStackTrace();
-            return;
-        }
-        try {
             setExploitationPeriod(scanner.nextInt());
-        } catch(InputMismatchException e){
-            e.printStackTrace();
-            return;
-        }
-        try {
             setLength(scanner.nextInt());
         } catch(InputMismatchException e){
-            e.printStackTrace();
-            return;
+            e.getMessage();
         };
     }
 
     /**
      * Method returns an instance of the class as a string
-     * @return - string
      */
     @Override
     public String toString() { // возвращается состояние объекта в виде строки

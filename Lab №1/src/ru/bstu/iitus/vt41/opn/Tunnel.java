@@ -34,14 +34,12 @@ public class Tunnel extends ViaductConstruction {
         try{
             setDepth(scanner.nextInt());
         } catch(InputMismatchException e){
-            e.printStackTrace();
-            return;
+            e.getMessage();
         }
     }
 
     /**
      * Method returns an instance of the class as a string
-     * @return - string
      */
     @Override
     public String toString() {

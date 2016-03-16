@@ -4,94 +4,71 @@ import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+import static ru.bstu.iitus.vt41.opn.ConstrType.*;
+
 /**
  * Created by KASPER on 07.02.2016.
  */
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws CountConstructionExeption, BuildConstructionException {
         /** Count Of Construction */
         int countOfConstruction = 0;
         /** Array Of Construction */
         ArrayList<Construction> arrayOfConstruction = new ArrayList<>();
         System.out.println("Enter the number of buildings");
         Scanner scanner = new Scanner(System.in);
-        try {
-            countOfConstruction = scanner.nextInt();
-        } catch(InputMismatchException e){
-            e.printStackTrace();
-            return;
-        }
+        countOfConstruction = getCountOfConstruction(scanner);
         for (int i = 0; i < countOfConstruction; i++) {
             System.out.println("Enter the type of construction");
             try {
-                Construction build = null;
-                Construction.Constr constr = Construction.Constr.constrEqualsString(scanner.next());
-                if (constr == null){
-                    throw new IllegalNameOfConstructionException();
-                }
-                switch (constr) {
-                    case BUILDING: {
-                        build = new Building();
-                        break;
-                    }
-                    case COTTAGE: {
-                        build = new Cottage();
-                        break;
-                    }
-                    case SUPERMARKET: {
-                        build = new Supermarket();
-                        break;
-                    }
-                    case APARTMENTHOUSE: {
-                        build = new ApartmentHouse();
-                        break;
-                    }
-                    case VIADUCTCONSTRUCTION: {
-                        build = new ViaductConstruction();
-                        break;
-                    }
-                    case BRIDGE: {
-                        build = new Bridge();
-                        break;
-                    }
-                    case TUNNEL: {
-                        build = new Tunnel();
-                        break;
-                    }
-                    default: {
-                        System.out.println("Such structures do not have");
-                        break;
-                    }
-                }
-                if (build != null) {
-                    build.init(scanner);
-                    arrayOfConstruction.add(build);
-                }
-            } catch(InputMismatchException e) {
-                e.printStackTrace();
-                return;
-            } catch(IllegalNameOfConstructionException e){
-                System.out.println(e.getMessageError());
-                return;
+                arrayOfConstruction.add(buildConstructions(scanner));
+            } catch (IllegalConstructionNameException |
+                    InputMismatchException |
+                    InstantiationException |
+                    IllegalAccessException e) {
+                throw new BuildConstructionException(e.getMessage());
             }
         }
         scanner.close();
-        Construction lowestPeriod = null;
+        if (arrayOfConstruction.size() > 0) {
+            getConstructionWithMinPeriod(arrayOfConstruction);
+        }
+    }
+
+    private static int getCountOfConstruction(Scanner scanner) throws CountConstructionExeption {
         try {
-            for (Construction construction: arrayOfConstruction){
-                if (lowestPeriod == null){
+            return scanner.nextInt();
+        } catch (InputMismatchException e) {
+            e.getMessage();
+            throw new CountConstructionExeption();
+        }
+    }
+
+    private static Construction buildConstructions(Scanner scanner) throws IllegalConstructionNameException,
+            IllegalAccessException, InstantiationException, BuildConstructionException {
+        ConstrType type = valueOf(scanner.next());
+        if (type == null) {
+            throw new IllegalConstructionNameException();
+        }
+        Construction construction = type.getInstance();
+        if (construction == null) {
+            throw new BuildConstructionException();
+        }
+        construction.init(scanner);
+        return construction;
+    }
+
+    private static void getConstructionWithMinPeriod(ArrayList<Construction> arrayOfConstruction) {
+        Construction lowestPeriod = arrayOfConstruction.get(0);
+        try {
+            for (Construction construction : arrayOfConstruction) {
+                if (lowestPeriod.getExploitationPeriod() > construction.getExploitationPeriod()) {
                     lowestPeriod = construction;
-                }
-                else {
-                    if (lowestPeriod.getExploitationPeriod() > construction.getExploitationPeriod()){
-                        lowestPeriod = construction;
-                    }
                 }
             }
             System.out.println("Information about the building with the lowest period of operation:\n" + lowestPeriod.toString());
-        } catch (Exception e){
-            e.printStackTrace();
-            return;
+        } catch (Exception e) {
+            e.getMessage();
         }
     }
 }

@@ -36,12 +36,8 @@ public class Cottage extends Building {
             String str = scanner.next();
             aLandArea = Double.parseDouble(str);
             setLandArea(aLandArea);
-        } catch(InputMismatchException e){
-            e.printStackTrace();
-            return;
-        } catch(NumberFormatException e){
-            e.printStackTrace();
-            return;
+        } catch(InputMismatchException | NumberFormatException e){
+            e.getMessage();
         }
     }
 

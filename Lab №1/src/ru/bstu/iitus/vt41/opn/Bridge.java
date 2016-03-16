@@ -17,7 +17,6 @@ public class Bridge extends ViaductConstruction {
 
     /**
      * Method returns count of poles
-     * @return - field count of poles
      */
     public int getNumberOfPoles() {
         return numberOfPoles;
@@ -34,14 +33,12 @@ public class Bridge extends ViaductConstruction {
         try{
             setNumberOfPoles(scanner.nextInt());
         } catch(InputMismatchException e){
-            e.printStackTrace();
-            return;
+            e.getMessage();
         }
     }
 
     /**
      * Method returns an instance of the class as a string
-     * @return - string
      */
     @Override
     public String toString() { // возвращается состояние объекта в виде строки

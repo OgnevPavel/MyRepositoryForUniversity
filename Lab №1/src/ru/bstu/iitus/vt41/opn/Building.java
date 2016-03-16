@@ -19,8 +19,6 @@ public class Building extends Construction {
 
     /**
      * Method returns number of floors
-     *
-     * @return - field number of floors
      */
     public int getNumberOfFloors() {
         return numberOfFloors;
@@ -28,35 +26,21 @@ public class Building extends Construction {
 
     /**
      * Method reads the parameters from the console
-     *
      * @param scanner - for read
      */
     public void init(Scanner scanner) {
         System.out.println("Material, exploitationPeriod, numberOfFloors");
         try {
             setMaterial(scanner.next());
-        } catch(InputMismatchException e){
-            e.printStackTrace();
-            return;
-        }
-        try {
             setExploitationPeriod(scanner.nextInt());
-        } catch(InputMismatchException e){
-            e.printStackTrace();
-            return;
-        }
-        try {
             setNumberOfFloors(scanner.nextInt());
         } catch(InputMismatchException e){
-            e.printStackTrace();
-            return;
+            e.getMessage();
         }
     }
 
     /**
      * Method returns an instance of the class as a string
-     *
-     * @return - string
      */
     @Override
     public String toString() {

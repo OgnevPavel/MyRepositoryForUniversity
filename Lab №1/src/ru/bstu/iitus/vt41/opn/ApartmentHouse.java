@@ -17,7 +17,6 @@ public class ApartmentHouse extends Building{
 
     /**
      * Method returns number of apartment
-     * @return - field number of apartment
      */
     public int getNumberOfApartment() {
         return numberOfApartment;
@@ -34,14 +33,12 @@ public class ApartmentHouse extends Building{
         try{
             setNumberOfApartment(scanner.nextInt());
         } catch(InputMismatchException e){
-            e.printStackTrace();
-            return;
+            e.getMessage();
         }
     }
 
     /**
      * Method returns an instance of the class as a string
-     * @return - string
      */
     @Override
     public String toString() {
