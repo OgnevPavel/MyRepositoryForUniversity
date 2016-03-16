@@ -1,5 +1,6 @@
 package ru.bstu.iitus.vt41.opn;
 
+import java.util.List;
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -11,26 +12,23 @@ import java.util.regex.Pattern;
  */
 public class Main {
     public static void main(String[] args) {
-        /**
-         * read filename (with path)
-         */
+        String inFilename = readFileName();
+        List<String> attributes;
+        try {
+            attributes = HtmlReader.getTextFromFile(inFilename);
+            for (String attribute: attributes) {
+                System.out.println(attribute);
+            }
+        } catch (Exception e) {
+            System.out.println("Method trows exception: " + e.toString());
+        }
+    }
+
+    private static String readFileName() {
         String inFilename;
         System.out.print("Enter file name: ");
         Scanner scanner = new Scanner(System.in);
         inFilename = scanner.next();
-        /**
-         * get file content
-         */
-        String fileContent = "";
-        try {
-            fileContent = HtmlReader.getTextFromFile(inFilename);
-        } catch (Exception e) {
-            System.out.println("Method trows exception: " + e.toString());
-        }
-        Pattern htmlPattern = Pattern.compile(HtmlReader.REGEX_HTML_READER, Pattern.CASE_INSENSITIVE | Pattern.MULTILINE);
-        Matcher m = htmlPattern.matcher(fileContent);
-        while (m.find()) {
-            System.out.println(m.group(2));
-        }
+        return inFilename;
     }
 }
