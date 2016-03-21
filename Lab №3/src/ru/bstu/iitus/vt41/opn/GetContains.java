@@ -24,7 +24,7 @@ class GetContains implements Callable {
         Iterator<String> iterator = sortedSet.iterator();
         while (iterator.hasNext()) {
             String item = iterator.next();
-            if (item.toLowerCase().contains(strContain)) {
+            if (item.toLowerCase().contains(strContainLowerCase)) {
                 result.add(item);
             }
         }
