@@ -1,15 +1,11 @@
 package ru.bstu.iitus.vt41.opn;
 
-import com.sun.istack.internal.NotNull;
-
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.nio.charset.Charset;
-import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.*;
+import java.util.concurrent.Callable;
 import java.util.concurrent.FutureTask;
 
 /**
@@ -22,17 +18,12 @@ public class Main {
             String inFilename = readString("Enter file name: ");
             String subString = readString("Enter sub string: ");
 
-            ReadFile readFile = new ReadFile(inFilename);
-            FutureTask task = new FutureTask(readFile);
-            Thread thread = new Thread(task);
-            thread.start();
-            SortedSet<String> setWord = (SortedSet<String>)task.get();
-
+            ProcessFile readFile = new ProcessFile(readFileLines(inFilename));
+            FutureTask<SortedSet<String>> task = buildFutureTask(readFile);
+            SortedSet<String> setWord = task.get();
             GetContains getContain = new GetContains(setWord, subString);
-            FutureTask task2 = new FutureTask(getContain);
-            Thread thread2 = new Thread(task2);
-            thread2.start();
-            SortedSet<String> setWordWithSubString = (SortedSet<String>)task2.get();
+            FutureTask<SortedSet<String>> task2 = buildFutureTask(getContain);
+            SortedSet<String> setWordWithSubString = task2.get();
 
             SetOutput task3 = new SetOutput(setWordWithSubString);
             task3.start();
@@ -43,6 +34,19 @@ public class Main {
         } catch (Exception e) {
             System.out.println("Method trows exception: " + e.toString());
         }
+    }
+
+    private static FutureTask<SortedSet<String>> buildFutureTask(Callable<SortedSet<String>> readFile) throws InterruptedException {
+        FutureTask<SortedSet<String>> task = new FutureTask<>(readFile);
+        Thread thread = new Thread(task);
+        thread.start();
+        thread.join();
+        return task;
+    }
+
+    private static List<String> readFileLines(String fileName) throws IOException {
+        Path path = Paths.get(fileName);
+        return Files.readAllLines(path);
     }
 
     //public static Charset ENCODING = StandardCharsets.UTF_8;

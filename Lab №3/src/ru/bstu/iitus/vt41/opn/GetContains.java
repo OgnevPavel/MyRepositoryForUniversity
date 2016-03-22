@@ -1,16 +1,20 @@
 package ru.bstu.iitus.vt41.opn;
 
 import java.util.Iterator;
+import java.util.Set;
 import java.util.SortedSet;
 import java.util.TreeSet;
 import java.util.concurrent.Callable;
+import java.util.function.Supplier;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 /**
  * Created by KASPER on 19.03.2016.
  */
 class GetContains implements Callable {
 
-    public SortedSet<String> sortedSet;
+    public Set<String> sortedSet;
     public String strContain;
     public GetContains(SortedSet<String> sortedSet, String strContain){
         this.sortedSet = sortedSet;
@@ -19,15 +23,11 @@ class GetContains implements Callable {
 
     //Method leaves a word with the key phrase
     public SortedSet<String> call() {
+        Supplier<SortedSet<String>> supplier = TreeSet::new;
         String strContainLowerCase = strContain.toLowerCase();
-        SortedSet<String> result = new TreeSet<String>();
-        Iterator<String> iterator = sortedSet.iterator();
-        while (iterator.hasNext()) {
-            String item = iterator.next();
-            if (item.toLowerCase().contains(strContainLowerCase)) {
-                result.add(item);
-            }
-        }
-        return result;
+        return sortedSet.stream()
+                .filter(item -> item.toLowerCase().contains(strContainLowerCase))
+                .collect(Collectors.toCollection(supplier));
+
     }
 }

@@ -22,7 +22,7 @@ public enum ConstrType {
     }
 
     public Construction getInstance() throws IllegalAccessException, InstantiationException {
-        return (Construction) constructionClass.newInstance();
+        return constructionClass.newInstance();
     }
 
     /**
