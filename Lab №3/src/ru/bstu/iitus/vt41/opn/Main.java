@@ -1,12 +1,24 @@
 package ru.bstu.iitus.vt41.opn;
 
+import com.sun.istack.internal.NotNull;
+
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.*;
 import java.util.concurrent.Callable;
 import java.util.concurrent.FutureTask;
+import java.util.function.Supplier;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+import static com.sun.deploy.util.StringUtils.splitString;
+import static java.util.Arrays.asList;
 
 /**
  * Created by KASPER on 18.03.2016.
@@ -19,18 +31,20 @@ public class Main {
             String subString = readString("Enter sub string: ");
 
             ProcessFile readFile = new ProcessFile(readFileLines(inFilename));
-            FutureTask<SortedSet<String>> task = buildFutureTask(readFile);
-            SortedSet<String> setWord = task.get();
+            FutureTask<SortedSet<String>> processFile = buildFutureTask(readFile);
+            SortedSet<String> setWord = processFile.get();
+
             GetContains getContain = new GetContains(setWord, subString);
-            FutureTask<SortedSet<String>> task2 = buildFutureTask(getContain);
-            SortedSet<String> setWordWithSubString = task2.get();
+            FutureTask<SortedSet<String>> getContains = buildFutureTask(getContain);
+            SortedSet<String> setWordWithSubString = getContains.get();
 
-            SetOutput task3 = new SetOutput(setWordWithSubString);
-            task3.start();
+            SetOutput setOutput = new SetOutput(setWordWithSubString);
+            setOutput.start();
 
-            //SortedSet<String> setWord = getTextFromFile(inFilename);
-            //SortedSet<String> setWordWithSubString = getContains(setWord, subString);
-            //setOutput(setWordWithSubString);
+            /*List<String> fileContent = readFileLines(inFilename);
+            SortedSet<String> setWord = getTextFromFile(fileContent);
+            SortedSet<String> setWordWithSubString = getContains(setWord, subString);
+            setOutput(setWordWithSubString);*/
         } catch (Exception e) {
             System.out.println("Method trows exception: " + e.toString());
         }
@@ -49,26 +63,25 @@ public class Main {
         return Files.readAllLines(path);
     }
 
-    //public static Charset ENCODING = StandardCharsets.UTF_8;
+    public static Charset ENCODING = StandardCharsets.UTF_8;
 
     /**
      * Reads a text file and builds a string of its content. Returns sorted set of string contents.
      *
-     * @param fileName - filename to read from. Must be a UTF-8 coded text file.
+     * @param fileContent - filename to read from. Must be a UTF-8 coded text file.
      * @return - entire text file as sorted set of string
      * @throws - IOException
      */
-    /*public static SortedSet<String> getTextFromFile(@NotNull String fileName) throws IOException {
-        Path path = Paths.get(fileName);
-        SortedSet<String> result = new TreeSet<String>();
-        try (BufferedReader reader = Files.newBufferedReader(path, ENCODING)) {
-            String line;
-            while ((line = reader.readLine()) != null) {
-                StringTokenizer st = new StringTokenizer(line);
-                while (st.hasMoreTokens()) {
-                    result.add(st.nextToken());
-                }
-            }
+    /*public static SortedSet<String> getTextFromFile(List<String> fileContent) {
+        SortedSet<String> result = new TreeSet<>();
+
+        //Эта строка нихера не робит!!!
+        //fileContent.stream().map(line -> result.addAll(asList(splitString(line, " "))));
+
+        Object[] objArr = fileContent.stream().map(line -> line.split(" ")).toArray();
+        String[][] stringArray = Arrays.copyOf(objArr, objArr.length, String[][].class);
+        for (String[] item : stringArray) {
+            result.addAll(asList(item));
         }
         return result;
     }*/
@@ -88,26 +101,17 @@ public class Main {
      * Method leaves a word with the key phrase
      */
     /*public static SortedSet<String> getContains(SortedSet<String> sortedSet, String strContain) {
+        Supplier<SortedSet<String>> supplier = TreeSet::new;
         String strContainLowerCase = strContain.toLowerCase();
-        SortedSet<String> result = new TreeSet<String>();
-        Iterator<String> iterator = sortedSet.iterator();
-        while (iterator.hasNext()) {
-            String item = iterator.next();
-            if (item.toLowerCase().contains(strContain)) {
-                result.add(item);
-            }
-        }
-        return result;
+        return sortedSet.stream()
+                .filter(item -> item.toLowerCase().contains(strContainLowerCase))
+                .collect(Collectors.toCollection(supplier));
     }*/
 
     /**
      * Method displays the elements of the console
      */
     /*private static void setOutput(SortedSet<String> sortedSet) {
-        Iterator<String> iterator = sortedSet.iterator();
-        while (iterator.hasNext()) {
-            String item = iterator.next();
-            System.out.println(item);
-        }
+        sortedSet.forEach(System.out::println);
     }*/
 }
