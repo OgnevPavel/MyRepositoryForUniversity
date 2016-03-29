@@ -12,6 +12,7 @@ import java.util.stream.Collectors;
 /**
  * Created by KASPER on 19.03.2016.
  */
+//fixme rename
 class GetContains implements Callable {
 
     public Set<String> sortedSet;

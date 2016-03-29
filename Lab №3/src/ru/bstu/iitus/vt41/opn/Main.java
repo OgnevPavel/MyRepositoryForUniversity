@@ -18,6 +18,7 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import static com.sun.deploy.util.StringUtils.splitString;
+import static java.nio.file.Files.readAllLines;
 import static java.util.Arrays.asList;
 
 /**
@@ -30,7 +31,7 @@ public class Main {
             String inFilename = readString("Enter file name: ");
             String subString = readString("Enter sub string: ");
 
-            ProcessFile readFile = new ProcessFile(readFileLines(inFilename));
+            ProcessFile readFile = new ProcessFile(readAllLines(Paths.get(inFilename)));
             FutureTask<SortedSet<String>> processFile = buildFutureTask(readFile);
             SortedSet<String> setWord = processFile.get();
 
@@ -40,11 +41,6 @@ public class Main {
 
             SetOutput setOutput = new SetOutput(setWordWithSubString);
             setOutput.start();
-
-            /*List<String> fileContent = readFileLines(inFilename);
-            SortedSet<String> setWord = getTextFromFile(fileContent);
-            SortedSet<String> setWordWithSubString = getContains(setWord, subString);
-            setOutput(setWordWithSubString);*/
         } catch (Exception e) {
             System.out.println("Method trows exception: " + e.toString());
         }
@@ -57,13 +53,6 @@ public class Main {
         thread.join();
         return task;
     }
-
-    private static List<String> readFileLines(String fileName) throws IOException {
-        Path path = Paths.get(fileName);
-        return Files.readAllLines(path);
-    }
-
-    public static Charset ENCODING = StandardCharsets.UTF_8;
 
     /**
      * Reads a text file and builds a string of its content. Returns sorted set of string contents.

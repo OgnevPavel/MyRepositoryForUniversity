@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.SortedSet;
 import java.util.TreeSet;
 import java.util.concurrent.Callable;
+
 import static com.sun.deploy.util.StringUtils.*;
 import static java.util.Arrays.asList;
 
@@ -28,15 +29,9 @@ class ProcessFile implements Callable<SortedSet<String>> {
     //Reads a text file and builds a string of its content. Returns sorted set of string contents.
     public SortedSet<String> call() {
         SortedSet<String> result = new TreeSet<>();
-        
+
         //Эта строка нихера не робит!!!
-        fileContent.stream().map(line -> result.addAll(asList(splitString(line, " "))));
-        
-        Object[] objArr = fileContent.stream().map(line -> line.split(" ")).toArray();
-        String[][] stringArray = Arrays.copyOf(objArr, objArr.length, String[][].class);
-        for (String[] item : stringArray) {
-            result.addAll(asList(item));
-        }
-        return result;
+        return fileContent.stream().map(line -> asList(splitString(line, " ")))
+                .collect(TreeSet::new, TreeSet::addAll, TreeSet::addAll);
     }
 }
